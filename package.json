@@ -48,7 +48,9 @@
     "test:ios": "cross-env UNI_PLATFORM=app-plus UNI_OS_NAME=ios jest -i",
     "test:mp-baidu": "cross-env UNI_PLATFORM=mp-baidu jest -i",
     "test:mp-weixin": "cross-env UNI_PLATFORM=mp-weixin jest -i",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "npm run install-vant",
+    "install-vant": "node scripts/install-vant.js"
   },
   "dependencies": {
     "@dcloudio/uni-app-plus": "2.0.1-35320220729001",
@@ -120,6 +122,9 @@
     "scripts": {}
   },
   "eslintConfig": {
-    "extends": "@oit"
+    "extends": "@oit",
+    "globals": {
+      "uni": "readonly"
+    }
   }
 }
