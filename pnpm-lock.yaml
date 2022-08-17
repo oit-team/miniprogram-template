@@ -5,6 +5,7 @@ overrides:
 
 specifiers:
   '@babel/runtime': ~7.17.9
+  '@dcasia/mini-program-tailwind-webpack-plugin': ^1.5.3
   '@dcloudio/types': ^3.0.4
   '@dcloudio/uni-app-plus': 2.0.1-35320220729001
   '@dcloudio/uni-automator': 2.0.1-35320220729001
@@ -58,8 +59,10 @@ specifiers:
   regenerator-runtime: ^0.12.1
   sass: ^1.54.4
   vue: ^2.6.11
+  vue-cli-plugin-windicss: ^1.1.6
   vue-template-compiler: ^2.6.11
   vuex: ^3.2.0
+  windicss: ^3.5.6
 
 dependencies:
   '@dcloudio/uni-app-plus': 2.0.1-35320220729001
@@ -92,6 +95,7 @@ dependencies:
 
 devDependencies:
   '@babel/runtime': 7.17.9
+  '@dcasia/mini-program-tailwind-webpack-plugin': 1.5.3
   '@dcloudio/types': 3.0.13
   '@dcloudio/uni-automator': 2.0.1-35320220729001
   '@dcloudio/uni-cli-i18n': 2.0.1-35320220729001
@@ -119,7 +123,9 @@ devDependencies:
   postcss-comment: 2.0.0
   postcss-import: 12.0.1
   sass: 1.54.4
+  vue-cli-plugin-windicss: 1.1.6_@vue+cli-service@4.5.19
   vue-template-compiler: 2.7.8
+  windicss: 3.5.6
 
 packages:
 
@@ -147,6 +153,10 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.1.1
       '@jridgewell/trace-mapping': 0.3.15
+
+  /@antfu/utils/0.5.2:
+    resolution: {integrity: sha512-CQkeV+oJxUazwjlHD0/3ZD08QWKuGQkhnrKo3e6ly5pd48VUpXbb77q0xMU4+vc2CkJnDS02Eq/M9ugyX20XZA==}
+    dev: true
 
   /@babel/code-frame/7.18.6:
     resolution: {integrity: sha512-TDCmlK5eOvH+eH7cdAFlNXeVJqWIQ7gW9tY1GJIpUtFb6CmjVyq2VM3u71bOyR8CRihcCgMUYoDNyLXao3+70Q==}
@@ -1282,6 +1292,18 @@ packages:
     dependencies:
       exec-sh: 0.3.6
       minimist: 1.2.6
+    dev: true
+
+  /@dcasia/mini-program-tailwind-webpack-plugin/1.5.3:
+    resolution: {integrity: sha512-l/3ksUS0SGV69rWBVLdrdZ8EJJpDDTx1f/eF+MfDb6To+dmTqbdDwGyUfk1v7EzyXkVsY6ZZ2HuAphpaHzrkJQ==}
+    dependencies:
+      '@babel/core': 7.18.10
+      '@vivaxy/wxml': 2.1.0
+      postcss: 8.4.16
+      webpack-sources: 1.4.3
+      windicss-webpack-plugin: 1.7.5
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@dcloudio/types/2.6.12:
@@ -2443,6 +2465,10 @@ packages:
     resolution: {integrity: sha512-S0T6myy4Ve4ZClRujJKP1Eu5hP5GFkVeQH587uakhacrQ+9Fp23gfnmo+dKMf7FbjTRqQu+ehxcr0Ba75iV8HA==}
     dev: false
 
+  /@vivaxy/wxml/2.1.0:
+    resolution: {integrity: sha512-xqnfAB58tl5SPyfkQjrn7D7nuvq7XV9um7QUsjCrvA4X6aZBxcau9sAM47LsQTOpJIVPzjaKIMvq3ul07yZlOA==}
+    dev: true
+
   /@vue/babel-helper-vue-jsx-merge-props/1.2.1:
     resolution: {integrity: sha512-QOi5OW45e2R20VygMSNhyQHvpdUwQZqGPc748JLGCYEy+yp8fNFNdbNIGAgZmi9e+2JHPd6i6idRuqivyicIkA==}
     dev: true
@@ -3201,6 +3227,30 @@ packages:
       '@webassemblyjs/ast': 1.9.0
       '@webassemblyjs/wast-parser': 1.9.0
       '@xtuc/long': 4.2.2
+
+  /@windicss/config/1.8.7:
+    resolution: {integrity: sha512-8n+/Y36j5L3rw2tgMdLjeGRuNV7VYfKoHoraLK6Bk9OJ1MTPd5vv7pekof/uOPWVV7WWjVeZ6CTO8SDbDDW3iw==}
+    dependencies:
+      debug: 4.3.4
+      jiti: 1.14.0
+      windicss: 3.5.6
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@windicss/plugin-utils/1.8.7:
+    resolution: {integrity: sha512-dfj95olNZyGFDPFMBvE5oq8hA5f0ooUJZjVdWlthS4ek4W1/xNOHDxB6ygWR8LE9zCOXZykApjt1LOhy9Ky2QA==}
+    dependencies:
+      '@antfu/utils': 0.5.2
+      '@windicss/config': 1.8.7
+      debug: 4.3.4
+      fast-glob: 3.2.11
+      magic-string: 0.26.2
+      micromatch: 4.0.5
+      windicss: 3.5.6
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /@xtuc/ieee754/1.2.0:
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
@@ -5397,6 +5447,10 @@ packages:
       is-descriptor: 1.0.2
       isobject: 3.0.1
 
+  /defu/6.1.0:
+    resolution: {integrity: sha512-pOFYRTIhoKujrmbTRhcW5lYQLBXw/dlTwfI8IguF1QCDJOcJzNH1w+YFjxqy6BAuJrClTy6MUE8q+oKJ2FLsIw==}
+    dev: true
+
   /del/4.1.1:
     resolution: {integrity: sha512-QwGuEUouP2kVwQenAsOof5Fv8K9t3D8Ca8NxcXKrIpEHjTXK5J2nXLdP+ALI1cgv8wj7KuwBhTwBkOZSJKM5XQ==}
     engines: {node: '>=6'}
@@ -6786,6 +6840,11 @@ packages:
   /get-package-type/0.1.0:
     resolution: {integrity: sha512-pjzuKtY64GYfWizNAJ0fr9VqttZkNiK2iS430LtIHzjBEr6bX8Am2zm4sW4Ro5wjWW5cAlRL1qAMTcXbjNAO2Q==}
     engines: {node: '>=8.0.0'}
+    dev: true
+
+  /get-port/6.1.2:
+    resolution: {integrity: sha512-BrGGraKm2uPqurfGVj/z97/zv8dPleC6x9JBNRTrDNtCkkRF4rPwrQXFgL7+I+q8QSdU4ntLQX2D7KIxSy8nGw==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dev: true
 
   /get-stream/3.0.0:
@@ -8354,6 +8413,11 @@ packages:
       - utf-8-validate
     dev: true
 
+  /jiti/1.14.0:
+    resolution: {integrity: sha512-4IwstlaKQc9vCTC+qUXLM1hajy2ImiL9KnLvVYiaHOtS/v3wRjhLlGl121AmgDgx/O43uKmxownJghS5XMya2A==}
+    hasBin: true
+    dev: true
+
   /joi/17.6.0:
     resolution: {integrity: sha512-OX5dG6DTbcr/kbMFj0KGYxuew69HPcAE3K/sZpEV2nP6e/j/C0HV+HNiBPCASxdx5T7DMoa0s8UeHWMnb6n2zw==}
     dependencies:
@@ -8869,6 +8933,13 @@ packages:
     dependencies:
       '@dcloudio/types': 2.6.12
     dev: false
+
+  /magic-string/0.26.2:
+    resolution: {integrity: sha512-NzzlXpclt5zAbmo6h6jNc8zl2gNRGHvmsZW4IvZhTC4W7k4OlLP+S5YLussa/r3ixNT66KOQfNORlXHSOy/X4A==}
+    engines: {node: '>=12'}
+    dependencies:
+      sourcemap-codec: 1.4.8
+    dev: true
 
   /make-dir/2.1.0:
     resolution: {integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==}
@@ -9876,6 +9947,10 @@ packages:
   /path-type/4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
+    dev: true
+
+  /pathe/0.2.0:
+    resolution: {integrity: sha512-sTitTPYnn23esFR3RlqYBWn4c45WGeLcsKzQiUpXJAyfcWkolvlYpV8FLo7JishK946oQwMFUCHXQ9AjGPKExw==}
     dev: true
 
   /pbkdf2/3.1.2:
@@ -11503,6 +11578,10 @@ packages:
     resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
     engines: {node: '>= 8'}
 
+  /sourcemap-codec/1.4.8:
+    resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
+    dev: true
+
   /spdx-correct/3.1.1:
     resolution: {integrity: sha512-cOYcUWwhCuHCXi49RhFRCyJEK3iPj1Ziz9DpViV3tbZOwXD49QzIN3MpOLJNxh2qwq2lJJZaKMVw9qNi4jTC0w==}
     dependencies:
@@ -12437,6 +12516,18 @@ packages:
   /vm-browserify/1.1.2:
     resolution: {integrity: sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==}
 
+  /vue-cli-plugin-windicss/1.1.6_@vue+cli-service@4.5.19:
+    resolution: {integrity: sha512-lN/0VjF52VU9AkXLUCsVAZUeLDvGZy8aEWDxQXFYksEPToPZFlzla19fHcuVmtT2jBWosWoGzeZcE1e9ViqUSA==}
+    peerDependencies:
+      '@vue/cli-service': ^3.0.0 || ^4.0.0-0 || ^5.0.0
+    dependencies:
+      '@vue/cli-service': 4.5.19_7unolrgjwxngstwwllrtmolbmm
+      defu: 6.1.0
+      windicss-webpack-plugin: 1.7.5
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /vue-eslint-parser/9.0.3_eslint@8.22.0:
     resolution: {integrity: sha512-yL+ZDb+9T0ELG4VIFo/2anAOz8SvBdlqEnQnvJ3M7Scq56DvtjY0VY88bByRZB0D4J0u8olBcfrXTVONXsh4og==}
     engines: {node: ^14.17.0 || >=16.0.0}
@@ -12857,6 +12948,10 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
+  /webpack-virtual-modules/0.4.4:
+    resolution: {integrity: sha512-h9atBP/bsZohWpHnr+2sic8Iecb60GxftXsWNLLLSqewgIsGzByd2gcIID4nXcG+3tNe4GQG3dLcff3kXupdRA==}
+    dev: true
+
   /webpack/4.46.0:
     resolution: {integrity: sha512-6jJuJjg8znb/xRItk7bkT0+Q7AHCYjjFnvKIWQPkNIOyRqoCGvkOs0ipeQzrqz4l5FtN5ZI/ukEHroeX/o1/5Q==}
     engines: {node: '>=6.11.5'}
@@ -13001,6 +13096,27 @@ packages:
     hasBin: true
     dependencies:
       isexe: 2.0.0
+    dev: true
+
+  /windicss-webpack-plugin/1.7.5:
+    resolution: {integrity: sha512-+DwZwFcjgYrD/UU1UEs1TOTo4ijAwRkXEgJMttPd05NSC3ULvguvNKL5kNxrCTYs4OMJn68qbCfkjpI0mir4cQ==}
+    dependencies:
+      '@windicss/plugin-utils': 1.8.7
+      debug: 4.3.4
+      get-port: 6.1.2
+      loader-utils: 2.0.2
+      lodash: 4.17.21
+      pathe: 0.2.0
+      webpack-virtual-modules: 0.4.4
+      windicss: 3.5.6
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /windicss/3.5.6:
+    resolution: {integrity: sha512-P1mzPEjgFMZLX0ZqfFht4fhV/FX8DTG7ERG1fBLiWvd34pTLVReS5CVsewKn9PApSgXnVfPWwvq+qUsRwpnwFA==}
+    engines: {node: '>= 12'}
+    hasBin: true
     dev: true
 
   /word-wrap/1.2.3:

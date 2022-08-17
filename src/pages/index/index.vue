@@ -1,12 +1,12 @@
 <template>
-  <view class="content">
-    <image class="logo" src="/static/logo.png" />
+  <view class="flex flex-col items-center justify-center">
+    <image class="w-100px h-100px mt-100px mb-6" src="/static/logo.png" />
     <view>
-      <text class="title">
+      <text class="text-lg text-[#8f8f94]">
         {{ title }}
       </text>
     </view>
-    <van-button @click="test()">
+    <van-button class="mt-2" @click="test()">
       测试
     </van-button>
   </view>
@@ -30,26 +30,4 @@ export default {
 </script>
 
 <style lang="scss">
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo {
-  height: 200rpx;
-  width: 200rpx;
-  margin: 200rpx auto 50rpx auto;
-}
-
-.text-area {
-  display: flex;
-  justify-content: center;
-}
-
-.title {
-  font-size: 36rpx;
-  color: #8f8f94;
-}
 </style>
