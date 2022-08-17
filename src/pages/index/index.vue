@@ -13,18 +13,17 @@
 </template>
 
 <script>
+import { login } from '@/api/account'
+
 export default {
   data() {
     return {
       title: 'Hello',
     }
   },
-  onLoad() {
-
-  },
   methods: {
     test() {
-      console.log('test')
+      login()
     },
   },
 }

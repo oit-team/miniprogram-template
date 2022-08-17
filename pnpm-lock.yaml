@@ -50,6 +50,7 @@ specifiers:
   eslint: ^8.21.0
   flyio: ^0.6.2
   jest: ^25.4.0
+  luch-request: ^3.0.7
   mini-types: '*'
   miniprogram-api-typings: '*'
   postcss-comment: ^2.0.0
@@ -84,6 +85,7 @@ dependencies:
   '@vue/shared': 3.2.37
   core-js: 3.24.1
   flyio: 0.6.14
+  luch-request: 3.0.7
   regenerator-runtime: 0.12.1
   vue: 2.7.8
   vuex: 3.6.2_vue@2.7.8
@@ -1281,6 +1283,10 @@ packages:
       exec-sh: 0.3.6
       minimist: 1.2.6
     dev: true
+
+  /@dcloudio/types/2.6.12:
+    resolution: {integrity: sha512-mrCMwcINy1IFjU9VUqLeWBkj404yWs5paLDttBcA+eqUjanuUQbBcTVPqlrGgkyzLXDcV2oDDZRSNxNpXi4kMQ==}
+    dev: false
 
   /@dcloudio/types/3.0.13:
     resolution: {integrity: sha512-K8z8DfylWnLjEHUnsc6DsxA6ugCzYZoAmyVIpT57K3cAfMTGx8E6GAW5x8Qy2lbFpw02N3D+sGHX63zO1zDVig==}
@@ -8857,6 +8863,12 @@ packages:
     dependencies:
       yallist: 4.0.0
     dev: true
+
+  /luch-request/3.0.7:
+    resolution: {integrity: sha512-rYTgAO0CiAMjuotvwhtEREQ6mh/qdgYO2a+cKDv2VPnww/MdNaHMGMpsPY6VvJCOtfH7kV9lDujjuihhlu1xmg==}
+    dependencies:
+      '@dcloudio/types': 2.6.12
+    dev: false
 
   /make-dir/2.1.0:
     resolution: {integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==}
