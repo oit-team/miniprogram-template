@@ -83,6 +83,8 @@
   },
   "devDependencies": {
     "@babel/runtime": "~7.17.9",
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
     "@dcasia/mini-program-tailwind-webpack-plugin": "^1.5.3",
     "@dcloudio/types": "^3.0.4",
     "@dcloudio/uni-automator": "2.0.1-35320220729001",
@@ -105,7 +107,9 @@
     "babel-plugin-import": "^1.11.0",
     "cross-env": "^7.0.2",
     "eslint": "^8.21.0",
+    "husky": "^8.0.1",
     "jest": "^25.4.0",
+    "lint-staged": "^12.5.0",
     "mini-types": "*",
     "miniprogram-api-typings": "*",
     "postcss-comment": "^2.0.0",
@@ -124,6 +128,14 @@
   },
   "uni-app": {
     "scripts": {}
+  },
+  "lint-staged": {
+    "*.{vue,js}": [
+      "npm run lint --fix"
+    ]
+  },
+  "commitlint": {
+    "extends": "@commitlint/config-conventional"
   },
   "eslintConfig": {
     "extends": "@oit",
