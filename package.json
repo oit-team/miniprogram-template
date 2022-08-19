@@ -49,7 +49,7 @@
     "test:mp-baidu": "cross-env UNI_PLATFORM=mp-baidu jest -i",
     "test:mp-weixin": "cross-env UNI_PLATFORM=mp-weixin jest -i",
     "preinstall": "npx only-allow pnpm",
-    "postinstall": "npm run install-vant",
+    "prepare": "husky install && npm run install-vant",
     "install-vant": "node scripts/install-vant.js"
   },
   "dependencies": {
