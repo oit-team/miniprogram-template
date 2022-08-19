@@ -1,7 +1,7 @@
 import Axios from 'luch-request'
 import ApiError from './api-error'
-import API_SERVICE from './API_SERVICE'
 
+// 创建接口错误封装对象
 function createApiError(option) {
   return new ApiError(option).reject()
 }
@@ -65,15 +65,7 @@ export function post(url, data, config = {}) {
     .then(res => res.data)
 }
 
-/**
- * 创建拼接请求服务的请求函数
- */
-Object.values(API_SERVICE).forEach((service) => {
-  post[service] = function (url, data, config) {
-    return post(`/${service}${url}`, data, config)
-  }
-})
-
+// 捕获promise错误
 wx.onUnhandledRejection(({ reason }) => {
   // 处理接口错误
   if (reason instanceof ApiError) {
