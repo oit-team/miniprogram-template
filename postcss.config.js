@@ -1,4 +1,6 @@
 const path = require('path')
+const postcss = require('postcss')
+
 module.exports = {
   parser: require('postcss-comment'),
   plugins: [
@@ -18,5 +20,8 @@ module.exports = {
       remove: process.env.UNI_PLATFORM !== 'h5',
     }),
     require('@dcloudio/vue-cli-plugin-uni/packages/postcss'),
+    require('postcss-px-to-viewport')({
+      viewportWidth: 375,
+    }),
   ],
 }
