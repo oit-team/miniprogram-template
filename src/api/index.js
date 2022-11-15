@@ -1,5 +1,7 @@
 import Axios from 'luch-request'
 import ApiError from './api-error'
+import Toast from '@/wxcomponents/vant/toast/toast'
+import store from '@/store'
 
 // 创建接口错误封装对象
 function createApiError(option) {
@@ -8,6 +10,7 @@ function createApiError(option) {
 
 const axiosInstance = new Axios({
   baseURL: process.env.VUE_APP_API_URL,
+  timeout: 60000,
 })
 
 // 添加请求拦截器
@@ -22,6 +25,8 @@ axiosInstance.interceptors.request.use((config) => {
 axiosInstance.interceptors.response.use((response) => {
   if (response.data.head?.status !== 0) {
     return createApiError({
+      url: response?.config.url,
+      status: response?.config.statusCode,
       response,
       message: response.data.head.msg,
       code: response.data.head.status,
@@ -31,8 +36,8 @@ axiosInstance.interceptors.response.use((response) => {
 }, async (error) => {
   return createApiError({
     error,
-    url: error.config.fullPath,
-    message: error.errMsg,
+    url: error?.config?.url,
+    message: error?.errMsg,
   })
 })
 
@@ -42,19 +47,19 @@ axiosInstance.interceptors.response.use((response) => {
  * @param {object} data 参数
  * @param {object} config 请求配置
  */
-export function post(url, data, config = {}) {
-  const userData = {}
+export function post(url, data = {}, config = {}) {
+  const userInfo = store.state.userInfo
 
   const wrapData = {
     head: {
-      aid: userData.id,
+      aid: userInfo.id,
       cmd: config.cmd,
       ver: '1.0',
       ln: 'cn',
       mod: 'app',
       de: '2019-10-16',
       sync: 1,
-      uuid: userData.brandId,
+      uuid: userInfo.brandId,
       chcode: 'ef19843298ae8f2134f',
     },
     con: data,
@@ -69,10 +74,16 @@ export function post(url, data, config = {}) {
 wx.onUnhandledRejection(({ reason }) => {
   // 处理接口错误
   if (reason instanceof ApiError) {
+    console.error(reason)
+
+    if (reason.resolved) return
+
+    const httpStatusCode = reason.error?.statusCode
+    let msg = reason.message
+
+    if (httpStatusCode > 500) msg = '服务器出错\n请稍后重试'
+
     // 弹出提示
-    uni.showToast({
-      title: reason.message,
-      icon: 'error',
-    })
+    Toast.fail(msg)
   }
 })

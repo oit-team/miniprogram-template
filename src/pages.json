@@ -15,7 +15,9 @@
     "backgroundColor": "#F8F8F8",
     "usingComponents": {
       // 注册小程序组件
-      "van-button": "/wxcomponents/vant/button/index"
+      "van-button": "/wxcomponents/vant/button/index",
+      "van-toast": "/wxcomponents/vant/toast/index",
+      "van-dialog": "/wxcomponents/vant/dialog/index"
     }
   }
 }

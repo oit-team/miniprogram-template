@@ -1,6 +1,6 @@
 <template>
-  <view class="flex flex-col items-center justify-center">
-    <image class="w-100px h-100px mt-100px mb-6" src="/static/logo.png" />
+  <container classes="flex flex-col items-center justify-center">
+    <image class="w-100px h-100px mb-6" src="/static/logo.png" />
     <view>
       <text class="text-lg text-[#8f8f94]">
         {{ title }}
@@ -9,7 +9,7 @@
     <van-button class="mt-2" @click="test()">
       测试
     </van-button>
-  </view>
+  </container>
 </template>
 
 <script>
